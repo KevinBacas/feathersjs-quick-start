@@ -1,0 +1,13 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "postgres": "postgres://postgres:@192.168.99.100:32768/postgres",
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "0xd1YDY+LgNpO5rtnWVh4pwGmGI/YlJa7j3ZqEu7tm4oPssxJ+bseMADMaxkdsPkZr70/8f8ezVxpfFmapK36g=="
+    },
+    "local": {}
+  }
+}
