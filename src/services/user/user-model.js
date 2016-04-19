@@ -17,6 +17,10 @@ module.exports = function(sequelize) {
     password: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    avatar: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   }, {
     freezeTableName: true

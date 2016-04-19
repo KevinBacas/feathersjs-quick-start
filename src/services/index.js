@@ -8,7 +8,7 @@ module.exports = function() {
 
   const sequelize = new Sequelize(app.get('postgres'), {
     dialect: 'postgres',
-    logging: false
+    logging: true
   });
   app.set('sequelize', sequelize);
 

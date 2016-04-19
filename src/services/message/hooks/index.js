@@ -1,24 +1,31 @@
 'use strict';
 
-const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
+const auth = require('feathers-authentication').hooks;
 
+const restrictToSender = require('./restrict-to-sender');
+const process = require('./process');
+const globalHooks = require('../../../hooks');
 
 exports.before = {
-  all: [],
+  all: [
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated()
+  ],
   find: [],
   get: [],
-  create: [],
-  update: [],
-  patch: [],
-  remove: []
+  create: [process()],
+  update: [hooks.remove('sentBy'), restrictToSender()],
+  patch: [hooks.remove('sentBy'), restrictToSender()],
+  remove: [restrictToSender()]
 };
 
 exports.after = {
-  all: [],
-  find: [],
-  get: [],
-  create: [],
+  all: [hooks.populate('sentBy', { service: 'users', field: 'id' })], // Populate the sender
+  find: [hooks.populate('sentBy', { service: 'users', field: 'id' })],
+  get: [hooks.populate('sentBy', { service: 'users',  field: 'id' })],
+  create: [hooks.populate('sentBy', { service: 'users', field: 'id' })],
   update: [],
   patch: [],
   remove: []
