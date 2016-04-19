@@ -1,14 +1,20 @@
 'use strict';
 
-const service = require('feathers-sequelize');
-const message = require('./message-model');
+const path = require('path');
+const NeDB = require('nedb');
+const service = require('feathers-nedb');
 const hooks = require('./hooks');
 
 module.exports = function(){
   const app = this;
 
-  const options = {
-    Model: message(app.get('sequelize')),
+  const db = new NeDB({
+    filename: path.join(app.get('nedb'), 'messages.db'),
+    autoload: true
+  });
+
+  let options = {
+    Model: db,
     paginate: {
       default: 5,
       max: 25

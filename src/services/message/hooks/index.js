@@ -22,10 +22,10 @@ exports.before = {
 };
 
 exports.after = {
-  all: [hooks.populate('sentBy', { service: 'users', field: 'id' })], // Populate the sender
-  find: [hooks.populate('sentBy', { service: 'users', field: 'id' })],
-  get: [hooks.populate('sentBy', { service: 'users',  field: 'id' })],
-  create: [hooks.populate('sentBy', { service: 'users', field: 'id' })],
+  all: [hooks.populate('sentBy', { service: 'users', field: 'userId' })], // Populate the sender
+  find: [hooks.populate('sentBy', { service: 'users', field: 'userId' })],
+  get: [hooks.populate('sentBy', { service: 'users',  field: 'userId' })],
+  create: [hooks.populate('sentBy', { service: 'users', field: 'userId' })],
   update: [],
   patch: [],
   remove: []

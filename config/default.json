@@ -1,10 +1,10 @@
 {
   "host": "localhost",
   "port": 3030,
-  "postgres": "postgres://postgres:@192.168.99.100:32772/postgres",
+  "nedb": "../data/",
   "public": "../public/",
   "auth": {
-    "idField": "id",
+    "idField": "_id",
     "token": {
       "secret": "0xd1YDY+LgNpO5rtnWVh4pwGmGI/YlJa7j3ZqEu7tm4oPssxJ+bseMADMaxkdsPkZr70/8f8ezVxpfFmapK36g=="
     },
