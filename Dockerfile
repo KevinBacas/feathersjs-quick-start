@@ -1,4 +1,4 @@
-FROM node:wheezy
+FROM node:slim
 
 # Create app directory
 RUN mkdir -p /usr/src/app
