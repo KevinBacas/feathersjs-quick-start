@@ -29,7 +29,7 @@ describe('message process hook', () => {
     assert.deepEqual(mockHook.data, {
       text: 'foo&amp;',
       userId: '1',
-      createdAt: mockHook.createdAt
+      createdAt: mockHook.data.createdAt
     });
   });
 });
